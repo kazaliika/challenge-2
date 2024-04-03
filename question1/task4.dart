@@ -1,29 +1,33 @@
 void main() {
-  List<int> LumbaLumba = [97, 112, 101];
-  List<int> Koala = [109, 95, 106];
+  List<int> db2_Lumba_Skor = [97, 112, 101];
+  List<int> db2_Koala_Skor = [109, 95, 106];
 
-  double rataRataLumbaLumba =
-      LumbaLumba.reduce((a, b) => a + b) / LumbaLumba.length;
-  double rataRataKoala = Koala.reduce((a, b) => a + b) / Koala.length;
+  double skor_Rata_Lumba =
+      db2_Lumba_Skor.reduce((a, b) => a + b) / db2_Lumba_Skor.length;
+  double skor_Rata_Koala =
+      db2_Koala_Skor.reduce((a, b) => a + b) / db2_Koala_Skor.length;
 
-  const int skorMinimum = 100;
+  const int minSkor = 100;
 
-  if (rataRataLumbaLumba >= rataRataKoala &&
-      rataRataKoala >= rataRataLumbaLumba) {
-    if (rataRataLumbaLumba > rataRataKoala) {
-      print('pemenang nya lumba-lumba skornya ialah $rataRataLumbaLumba');
-    } else if (rataRataKoala > rataRataLumbaLumba) {
-      print('pemenang nya koala skornya ialah $rataRataKoala');
+  var fix_Lumba = skor_Rata_Lumba.toStringAsFixed(1);
+  var fix_Koala = skor_Rata_Koala.toStringAsFixed(1);
+
+  if (skor_Rata_Lumba >= skor_Rata_Koala &&
+      skor_Rata_Koala >= skor_Rata_Lumba) {
+    if (skor_Rata_Lumba > skor_Rata_Koala) {
+      print('juara nya lumba-lumba dengan skor : $fix_Lumba');
+    } else if (skor_Rata_Koala > skor_Rata_Lumba) {
+      print('juara nya koala dengan skor : $fix_Koala');
     } else {
       print(
-          'hasil imbang kedua tim memiliki hasil yang sama: $rataRataKoala $rataRataLumbaLumba');
+          'hasil seri kedua tim dengan skor yang sama : $fix_Lumba & $fix_Koala');
     }
   }
 
-  if (rataRataLumbaLumba == rataRataKoala &&
-      rataRataKoala == rataRataLumbaLumba >= skorMinimum) {
+  if (skor_Rata_Lumba == skor_Rata_Koala &&
+      skor_Rata_Koala == skor_Rata_Lumba >= minSkor) {
     print(
-        'Hasil Seri! Kedua tim memiliki skor rata-rata yang sama ($rataRataLumbaLumba) dan lebih besar dengan $skorMinimum poin');
+        'Hasil Seri! Kedua tim memiliki skor rata-rata yang sama ($skor_Rata_Lumba) dan lebih besar dengan $minSkor poin');
   } else {
     print('Tidak ada tim yang memenangkan trofi.');
   }
