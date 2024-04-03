@@ -2,28 +2,22 @@ void main() {
   List<int> db1_Lumba_Skor = [97, 112, 101];
   List<int> db1_Koala_Skor = [109, 95, 123];
 
-  double skor_Rata_Lumba =
+  double lumbaTotal =
       db1_Lumba_Skor.reduce((a, b) => a + b) / db1_Lumba_Skor.length;
-  double skor_Rata_Koala =
-      db1_Koala_Skor.reduce((a, b) => a + b) / db1_Koala_Skor.length;
+  double koalaTotal =
+      db1_Koala_Skor.reduce((a, b) => a + b) / db1_Lumba_Skor.length;
 
-  const int minSkor = 100;
-
-  var fix_Lumba = skor_Rata_Lumba.toStringAsFixed(1);
-  var fix_Koala = skor_Rata_Koala.toStringAsFixed(1);
-
-  if (skor_Rata_Lumba >= skor_Rata_Koala &&
-      skor_Rata_Koala >= skor_Rata_Lumba) {
-    if (skor_Rata_Lumba > skor_Rata_Koala) {
-      print('juara nya lumba-lumba dengan skor : $fix_Lumba');
-    } else if (skor_Rata_Koala > skor_Rata_Lumba) {
-      print('juara nya koala dengan skor : $fix_Koala');
+  // Memeriksa apakah kedua tim memenuhi syarat skor minimum 100
+  if (lumbaTotal >= 100 && koalaTotal >= 100) {
+    // Memeriksa tim mana yang memiliki skor tertinggi
+    if (lumbaTotal > koalaTotal) {
+      print("Lumba menang dengan total skor: $lumbaTotal");
+    } else if (koalaTotal > lumbaTotal) {
+      print("Koala menang dengan total skor: $koalaTotal");
     } else {
-      print(
-          'hasil seri kedua tim dengan skor yang sama : $fix_Lumba & $fix_Koala');
+      print("Seri dengan total skor: $lumbaTotal");
     }
   } else {
-    print(
-        'tidak ada juara karna salah satu atau kedua tim punya skor rata-rata dibawah $minSkor');
+    print("Tidak ada tim yang memenuhi syarat skor minimum 100.");
   }
 }
