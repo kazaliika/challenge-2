@@ -12,22 +12,13 @@ void main() {
   var fix_Lumba = skor_Rata_Lumba.toStringAsFixed(1);
   var fix_Koala = skor_Rata_Koala.toStringAsFixed(1);
 
-  if (skor_Rata_Lumba >= skor_Rata_Koala &&
-      skor_Rata_Koala >= skor_Rata_Lumba) {
-    if (skor_Rata_Lumba > skor_Rata_Koala) {
-      print('juara nya lumba-lumba dengan skor : $fix_Lumba');
-    } else if (skor_Rata_Koala > skor_Rata_Lumba) {
-      print('juara nya koala dengan skor : $fix_Koala');
-    } else {
-      print(
-          'hasil seri kedua tim dengan skor yang sama : $fix_Lumba & $fix_Koala');
-    }
-  }
-
-  if (skor_Rata_Lumba == skor_Rata_Koala &&
-      skor_Rata_Koala == skor_Rata_Lumba >= minSkor) {
+  if (skor_Rata_Lumba > skor_Rata_Koala) {
+    print('juara nya lumba-lumba dengan skor : $fix_Lumba');
+  } else if (skor_Rata_Koala > skor_Rata_Lumba) {
+    print('juara nya koala dengan skor : $fix_Koala');
+  } else if (skor_Rata_Lumba >= minSkor) {
     print(
-        'Hasil Seri! Kedua tim memiliki skor rata-rata yang sama ($skor_Rata_Lumba) dan lebih besar dengan $minSkor poin');
+        'hasil seri kedua tim dengan skor yang sama : $fix_Lumba & $fix_Koala');
   } else {
     print('Tidak ada tim yang memenangkan trofi.');
   }
